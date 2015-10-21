@@ -23,11 +23,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//public folder setup
+app.use('/bower', express.static(__dirname + '/bower_components'));
+app.use('/client', express.static(__dirname + '/client'));
+app.use('/assets', express.static(__dirname + '/public'));
+
 app.use('/', routes);
 app.use('/users', users);
 app.use('/birds', birds);
-//public folder setup
-app.use('/static', express.static(__dirname + '/public'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -35,24 +38,6 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
-
-// a middleware with no mount path; gets executed for every request to the app
-app.use(function (req, res, next) {
-  console.log('Time:', Date.now());
-  next();
-});
-
-// a middleware mounted on /user/:id; will be executed for any type of HTTP request to /user/:id
-app.use('/user/:id', function (req, res, next) {
-  console.log('Request Type:', req.method);
-  next();
-});
-
-// a route and its handler function (middleware system) which handles GET requests to /user/:id
-app.get('/user/:id', function (req, res, next) {
-  res.send('USER');
-});
-
 
 // error handlers
 

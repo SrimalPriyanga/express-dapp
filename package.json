@@ -2,7 +2,7 @@
   "name": "express-dapp",
   "version": "1.0.0",
   "description": "Express Demo app",
-  "main": "index.js",
+  "main": "app.js",
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
