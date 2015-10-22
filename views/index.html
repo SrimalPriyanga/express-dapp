@@ -8,20 +8,33 @@
 </head>
 <body ng-controller='MainCtrl'>
 
-{{test}}
+--------------------------------------------------------------------------------
+<h3>Example of UI router State load to ui view</h3>
+--------------------------------------------------------------------------------
+<div ui-view></div>
+================================================================================
 
-aaaaaaaaaaaaaaaa
+<br/><br/><br/>
+{{fromMainctrl}}
+<br/>
+{{fromMyCtrl1}}
+<br/>
+{{fromMyCtrl2}}
+<br/>
+
+<a ui-sref="index">>Main State</a> <br/>
+<a ui-sref="view1">>State1 -View1</a> <br/>
+<a ui-sref="view2">>State2 -View2</a> <br/>
 
 <script src="/bower/angular/angular.js"></script>
 <script src="/bower/angular-aria/angular-aria.js"></script>
 <script src="/bower/angular-animate/angular-animate.js"></script>
 <script src="/bower/angular-material/angular-material.js"></script>
-<script>
-
-	// Include app dependency on ngMaterial
-//	angular.module( 'express-dapp', [ 'ngMaterial' ] )
-//		.controller("MainCtrl", MainCtrl );
-
-</script>
+<script src="/bower/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="/client/app.js"></script>
+<script src="/client/controllers.js"></script>
+<script src="/client/directives.js"></script>
+<script src="/client/filters.js"></script>
+<script src="/client/services.js"></script>
 </body>
 </html>

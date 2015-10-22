@@ -11,4 +11,9 @@ router.get('/', function(req, res, next) {
   res.sendFile(path.join(__dirname, '../views/index.html'));
 });
 
+router.get('partials/partial1', function(req, res, next) {
+  //var name = req.params.name;
+  res.render('partials/partial1');
+});
+
 module.exports = router;

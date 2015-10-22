@@ -5,9 +5,9 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
+var routes = require('./routes');
 var birds = require('./routes/birds');
+var partials = require('./routes');
 
 var app = express();
 
@@ -28,9 +28,14 @@ app.use('/bower', express.static(__dirname + '/bower_components'));
 app.use('/client', express.static(__dirname + '/client'));
 app.use('/assets', express.static(__dirname + '/public'));
 
+/** Routes */
+
+// serve index and view partials
 app.use('/', routes);
-app.use('/users', users);
 app.use('/birds', birds);
+app.use('partials/partial1', partials);
+// redirect all others to the index (HTML5 history)
+//app.use('*', routes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
