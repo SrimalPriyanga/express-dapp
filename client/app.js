@@ -12,7 +12,6 @@ angular.module('express-dapp',
     'ngMaterial'
   ]
 )
-
 .config(['$stateProvider', '$urlRouterProvider',
   function($stateProvider, $urlRouterProvider) {
     $stateProvider
@@ -22,16 +21,15 @@ angular.module('express-dapp',
         controller: 'MainCtrl'
       })
       .state('view1', {
-        url: '/view1',
-        template: '<h1>State1</h1>',
+        url: '/state1',
+        templateUrl: '/view1-tpl',
         controller: 'MyCtrl1'
       })
       .state('view2', {
-        url: '/view2',
-        //abstract: true,
-        template: '<h1>State2</h1>',
+        url: '/state2',
+        templateUrl: '/view2-tpl',
         controller: 'MyCtrl2'
-      })
+      });
 
     // For any unmatched url, redirect to /state1
     $urlRouterProvider.otherwise("/");

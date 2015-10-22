@@ -11,9 +11,12 @@ router.get('/', function(req, res, next) {
   res.sendFile(path.join(__dirname, '../views/index.html'));
 });
 
-router.get('partials/partial1', function(req, res, next) {
-  //var name = req.params.name;
-  res.render('partials/partial1');
+router.get('/view1-tpl', function(req, res, next) {
+  res.sendFile(path.join(__dirname, '../views/test.html'));
+});
+
+router.get('/view2-tpl', function(req, res, next) {
+    res.render('index', { title: 'Express' });
 });
 
 module.exports = router;
