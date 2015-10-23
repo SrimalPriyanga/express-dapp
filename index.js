@@ -23,8 +23,7 @@ app.use(cookieParser());
 
 //public folder setup
 app.use('/bower', express.static(__dirname + '/bower_components'));
-app.use('/client', express.static(__dirname + '/client'));
-app.use('/assets', express.static(__dirname + '/public'));
+app.use('/public', express.static(__dirname + '/client'));
 
 //Routes
 app.use('/', routes);
@@ -63,5 +62,3 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
-
-
